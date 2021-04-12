@@ -1,150 +1,169 @@
-<div>
-  <h1>This is my first project</h1>
-  <h3>Hello World</h3>
-  <h3>{{title}}</h3>
-  <h3>{{name}}</h3>
-  <h3>login works!</h3>
-</div>
-<div>
-  <h1>Login</h1>
-  <app-login></app-login>
-</div>
-<div>
-  <h1>Signup</h1>
-  <app-signup></app-signup>
-</div>
-<div>
-  <h1>Get result on click</h1>
-  <button (click) = "getName()">click me Get name</button>
+<app-header></app-header>
+<div class="container">
+  <div>
+    <h1>This is my first project</h1>
+    <h3>Hello World</h3>
+    <h3>{{title}}</h3>
+    <h3>{{name}}</h3>
+    <h3>login works!</h3>
+  </div>
+  <div>
+    <h1>Login</h1>
+    <app-login></app-login>
+  </div>
+  <div>
+    <h1>Signup</h1>
+    <app-signup></app-signup>
+  </div>
+  <div>
+    <h1>Get result on click</h1>
+    <button (click) = "getName()">click me Get name</button>
+    <br>
+    <br>
+  </div>
+  <div>
+    <h1>Get result on keyup in text-box</h1>
+    <input type="text" #box (keyup.enter)="myEvent(box.value)" />
+    <br>
+    <br>
+  </div>
+  <div>
+    <h1>Get result on keyup-enter in text-box</h1>
+    <input type="text" #box1 (keyup.enter)="myEvent(box1.value)" (blur)="myEvent('blur')" />
+    <br>
+    <br>
+  </div>
+  <div>
+    <h1>Get result on keyup in text-box</h1>
+    <input type="text" (keyup)="myEvent('value')" />
+    <br>
+    <br>
+  </div>
+  <div>
+    <h1>Get result on type in text-box</h1>
+    <input type="text" [value]=name />
+    <br>
+    <br>
+  </div>
+  <div>
+    <h1>Disabled text-box and enabled on click on button</h1>
+    <input type="text" [disabled]=disabledBox value={{name}} />
+    <br>
+    <br>
+    <button (click) = "enableBox()">click me Get Enabled</button>
+  </div>
   <br>
   <br>
-</div>
-<div>
-  <h1>Get result on keyup in text-box</h1>
-  <input type="text" #box (keyup.enter)="myEvent(box.value)" />
-  <br>
-  <br>
-</div>
-<div>
-  <h1>Get result on keyup-enter in text-box</h1>
-  <input type="text" #box1 (keyup.enter)="myEvent(box1.value)" (blur)="myEvent('blur')" />
-  <br>
-  <br>
-</div>
-<div>
-  <h1>Get result on keyup in text-box</h1>
-  <input type="text" (keyup)="myEvent('value')" />
-  <br>
-  <br>
-</div>
-<div>
-  <h1>Get result on type in text-box</h1>
-  <input type="text" [value]=name />
-  <br>
-  <br>
-</div>
-<div>
-  <h1>Disabled text-box and enabled on click on button</h1>
-  <input type="text" [disabled]=disabledBox value={{name}} />
-  <br>
-  <br>
-  <button (click) = "enableBox()">click me Get Enabled</button>
-</div>
-<br>
-<br>
-<div>
-  <h1>Condition IF and ELSE</h1>
-  <h3 *ngIf="show else elseBlock">
-    hello
-  </h3>
-  <ng-template #elseBlock >
-    <h3>
-      Else Block
+  <div>
+    <h1>Condition IF and ELSE</h1>
+    <h3 *ngIf="show else elseBlock">
+      hello
     </h3>
-  </ng-template>
-  <h3 *ngIf="show=='yes'; then ifBlock else elseBlock">
-  </h3>
-  <ng-template #ifBlock >
-    <h3>
-      If Block
+    <ng-template #elseBlock >
+      <h3>
+        Else Block
+      </h3>
+    </ng-template>
+    <h3 *ngIf="show=='yes'; then ifBlock else elseBlock">
     </h3>
-  </ng-template>
-  <ng-template #elseBlock >
-    <h3>
-      Else Block
+    <ng-template #ifBlock >
+      <h3>
+        If Block
+      </h3>
+    </ng-template>
+    <ng-template #elseBlock >
+      <h3>
+        Else Block
+      </h3>
+    </ng-template>
+  </div>
+  <div [ngSwitch]="color">
+    <h1>Switch Case</h1>
+    <h3 style="color: red;" *ngSwitchCase="'red'">
+      Red Color
     </h3>
-  </ng-template>
+    <h3 style="color: green;" *ngSwitchCase="'green'">
+      Green Color
+    </h3>
+    <h3 style="color: blue;" *ngSwitchCase="'blue'">
+      Blue Color
+    </h3>
+  </div>
+  <div>
+    <h1>loop and array</h1>
+    <h4 *ngFor="let item of dataloop">
+      {{item}}
+    </h4>
+  </div>
+  <div>
+    <h1>loop and array</h1>
+    <h4 *ngFor="let item of data">
+      {{item.name}}
+      {{item.age}}
+    </h4>
+  </div>
+  <div>
+    <h1>loop and array in table</h1>
+    <table border="1">
+      <tr>
+        <td>
+          Name
+        </td>
+        <td>
+          Age
+        </td>
+        <td>
+          Cast
+        </td>
+        <td>
+          Address
+        </td>
+      </tr>
+      <tr *ngFor="let item of datatable">
+        <td>
+          {{item.name}}
+        </td>
+        <td>
+          {{item.age}}
+        </td>
+        <td>
+          {{item.cast}}
+        </td>
+        <td>
+          {{item.address}}
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <h1>Form</h1>
+    <form #simpleForm (ngSubmit)="saveUser()">
+      <input type="text" [(ngModel)]="myUser.userName" name="username" placeholder="Enter Name"/>
+      <br>
+      <br>
+      <input #age type="text" [(ngModel)]="myUser.age" name="age" placeholder="Enter Age"/>
+      <br>
+      <br>
+      <input type="text" [(ngModel)]="myUser.address" name="address" placeholder="Enter Address"/>
+      <br>
+      <br>
+      <input type="password" [(ngModel)]="myUser.password" name="password" placeholder="Enter Password"/>
+      <br>
+      <br>
+      <button>Get Value</button>
+    </form>
+  </div>
+  <div>
+    <h1>Simple style</h1>
+    <h3 style="color: red;">Simple style</h3>
+  </div>
+  <div>
+    <h1>Binding style</h1>
+    <h3 [style.color]="'green'">Binding style</h3>
+  </div>
+  <div>
+    <h1>Dynamic style</h1>
+    <h3 [style.color]="coloryellow">Dynamic style</h3>
+  </div>
 </div>
-<div [ngSwitch]="color">
-  <h1>Switch Case</h1>
-  <h3 style="color: red;" *ngSwitchCase="'red'">
-    Red Color
-  </h3>
-  <h3 style="color: green;" *ngSwitchCase="'green'">
-    Green Color
-  </h3>
-  <h3 style="color: blue;" *ngSwitchCase="'blue'">
-    Blue Color
-  </h3>
-</div>
-<div>
-  <h1>loop and array</h1>
-  <h4 *ngFor="let item of dataloop">
-    {{item}}
-  </h4>
-</div>
-<div>
-  <h1>loop and array</h1>
-  <h4 *ngFor="let item of data">
-    {{item.name}}
-    {{item.age}}
-  </h4>
-</div>
-<div>
-  <h1>loop and array in table</h1>
-  <table border="1">
-    <tr>
-      <td>
-        Name
-      </td>
-      <td>
-        Age
-      </td>
-      <td>
-        Cast
-      </td>
-      <td>
-        Address
-      </td>
-    </tr>
-    <tr *ngFor="let item of datatable">
-      <td>
-        {{item.name}}
-      </td>
-      <td>
-        {{item.age}}
-      </td>
-      <td>
-        {{item.cast}}
-      </td>
-      <td>
-        {{item.address}}
-      </td>
-    </tr>
-  </table>
-</div>
-<div>
-  <h1>Form</h1>
-  <form #simpleForm (ngSubmit)="saveUser()">
-    <input type="text" [(ngModel)]="myUser.userName" name="username" placeholder="Enter Name"/>
-    <br>
-    <br>
-    <input #age type="text" [(ngModel)]="myUser.age" name="age" placeholder="Enter Age"/>
-    <br>
-    <br>
-    <input type="text" [(ngModel)]="myUser.address" name="address" placeholder="Enter Address"/>
-    <br>
-    <br>
-    <button>Get Value</button>
-  </form>
-</div>
+<app-footer></app-footer>

@@ -9,7 +9,8 @@ export class AppComponent {
   myUser = {
     userName: '',
     age: '',
-    address: ''
+    address: '',
+    password: ''
   }
   title = 'first-test-proj';
   name = 'Hussam';
@@ -17,6 +18,7 @@ export class AppComponent {
   disabledBox = true;
   show = 'yes';
   color = "blue";
+  coloryellow = "yellow";
   dataloop = ['anil','peter']
   data = [
     {
@@ -87,7 +89,8 @@ export class AppComponent {
     this.myUser = {
       userName: '',
       age: '',
-      address: ''
+      address: '',
+      password: '',
     }    
   }
 
@@ -95,6 +98,6 @@ export class AppComponent {
     console.log("Username is : " + this.myUser.userName)
     console.log("Age is : " + this.myUser.age)
     console.log("Address is : " + this.myUser.address)
-    // debugger
+    console.log("Password is : " + this.myUser.password)
   }
 }
